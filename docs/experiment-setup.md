@@ -14,7 +14,7 @@ This document describes the **simulation environment**, **testbench structure**,
     - 📜 `clock_generator_tb.v` (Clock generation module testbench)
     - 📜 `stopwatch_tb.v` (Stopwatch module testbench)
 - **RTL Source Directory:** `rtl/`
-- Waveform Output: Simulation waveforms observed using ModelSim waveform viewer.
+- **Waveform Output:** Observed and analyzed using the ModelSim waveform viewer.
 
 > All testbenches are **module-level**, focusing on functional verification of each block individually and integration at the top-level.
 
