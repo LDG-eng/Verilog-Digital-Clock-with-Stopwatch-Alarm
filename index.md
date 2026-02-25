@@ -1,4 +1,5 @@
 # ⏰ Verilog Digital Clock with Stopwatch & Alarm
+
 ### RTL-Based Digital Design & FPGA Synthesis
 
 ---
