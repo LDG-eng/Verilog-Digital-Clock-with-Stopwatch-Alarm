@@ -26,7 +26,10 @@ All modules underwent behavioral simulation using **ModelSim** to confirm logica
 ### 2. Waveform Analysis
 Simulation results were analyzed via waveform viewers to ensure timing constraints and signal transitions (such as `SW_State` or `Alarm` flags) met the design specifications.
 
-*(If you have a waveform screenshot, uncomment the line below to display it)*
+*(Example: Stopwatch & Clock Generator Verification Waveforms)*
+![Stopwatch Simulation Waveform](../assets/stopwatch_waveform.png)
+![Clock Generator Simulation Waveform](../assets/clock_gen_waveform.png)
+
 ---
 
 ## 🚀 How to Run Verification
@@ -44,4 +47,4 @@ The testbenches are designed to be compatible with **ModelSim**. Follow the step
 > vsim -c top_tb -do "run -all; quit"
 ```
 
-Note: Captured waveform images (.png or .jpg) showing successful functional verification and state transitions are located in the ../assets/ directory.
+Note: Captured waveform images (.png or .jpg) showing successful functional verification and state transitions are securely documented and can be found in the ../assets/ directory.
