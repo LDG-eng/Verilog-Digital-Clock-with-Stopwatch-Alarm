@@ -28,7 +28,6 @@ This project focuses on:
 - Accurate timekeeping logic (0–59 sec/min, 1–12 hour format)
 - Reliable state transitions under control signals
 - Concurrent operation ensured via independent always blocks
-- Synthesizable RTL structure for FPGA deployment
 
 Key design considerations covered in this implementation:
 
@@ -55,10 +54,9 @@ The system consists of four main RTL modules:
 ### 🔹 Architectural Characteristics
 
 - Clear separation of functional units
-- Independent always blocks for concurrent logic
+- Independent always blocks enabling concurrent logic execution
 - Top-level output multiplexing controlled by `Control`
 - Dedicated clock generation for second and millisecond resolution
-- Concurrent behavior implemented through independent always blocks
 
 ---
 
@@ -153,8 +151,7 @@ The schematic below was generated after synthesis to confirm hierarchy and conne
 
 ![Post-Synthesis Schematic](assets/images/schematic.JPG)
 
-The low resource utilization confirms that the design complexity is minimal relative to the target FPGA capacity.
-No synthesis warnings related to combinational loops or unintended latches were observed.
+The low resource utilization confirms modest logic complexity relative to the target FPGA capacity, and no synthesis warnings related to combinational loops or unintended latches were observed.
 
 ---
 
@@ -163,7 +160,7 @@ No synthesis warnings related to combinational loops or unintended latches were 
 This project demonstrates:
 
 - Structured modular RTL partitioning
-- Deterministic reset and control prioritization
+- Deterministic reset prioritization and control signal handling
 - Glitch-free mode switching through output multiplexing
 - Clear separation between timekeeping, alarm logic, and stopwatch control
 
