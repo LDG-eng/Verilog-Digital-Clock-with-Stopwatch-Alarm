@@ -25,7 +25,7 @@ Stopwatch and Alarm functionalities are modularized and integrated at the top-le
 
 ## 🗂️ Repository Structure
 
-📦 `Verilog-Digital-Clock-with-Stopwatch-Alarm`
+📦 Verilog-Digital-Clock-with-Stopwatch-Alarm
 - 📁 **rtl/**  
   Verilog RTL source files (.v)  
   *Modules:* `top.v`, `counter.v`, `stopwatch.v`, `alarm.v`, `display_controller.v`, `clock_divider.v`
