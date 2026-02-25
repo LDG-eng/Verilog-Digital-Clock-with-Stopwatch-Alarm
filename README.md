@@ -4,7 +4,7 @@
 This repository contains the RTL design and verification of a multi-functional digital clock implemented in **Verilog HDL**.  
 The design integrates a real-time clock, a precision stopwatch, and a programmable alarm system.  
 
-The project demonstrates the **standard cell-based digital IC design flow**, from RTL coding and behavioral simulation to logic synthesis and gate-level verification.  
+The project demonstrates a typical RTL-based digital design flow, from behavioral simulation to FPGA-level synthesis.
 Stopwatch and Alarm functionalities are modularized and integrated at the top-level RTL design.  
 
 ## ✨ Key Features
@@ -20,7 +20,7 @@ Stopwatch and Alarm functionalities are modularized and integrated at the top-le
 
 ## 🛠️ Design Flow
 1. **RTL Design:** Modular Verilog code developed for each functional block
-2. **Simulation:** Verified functionality and timing using **ModelSim** with dedicated testbenches.
+2. **Simulation:** Verified functional correctness using ModelSim testbenches.
 3. **Logic Synthesis:** Synthesized top-level RTL using **Vivado** to confirm gate-level mapping and hardware implementability.
 
 ## 🗂️ Repository Structure
@@ -43,9 +43,9 @@ Stopwatch and Alarm functionalities are modularized and integrated at the top-le
 
 | Metric             | Result               |
 |-------------------|--------------------|
-| Target Frequency   | 5KHz (Main Clock)       |
-| Total Area         | N/A                     |
-| Setup/Hold Slack   | Met timing requirements |
+| Input Clock Frequency | 5 KHz |
+| Resource Utilization  | LUT: 1%, FF: 1%, IO: 18%, BUFG: 1% |\
+| Target Board | ZCU104 Evaluation Board |
 
 > Screenshot of synthesis report: `assets/images/synthesis_report.png`  
 
@@ -59,6 +59,7 @@ Stopwatch and Alarm functionalities are modularized and integrated at the top-le
 ```bash
 # Compile and run the testbench (ModelSim CLI example)
 > vlib work
-> vlog rtl/*.v tb/clk_tb.v
-> vsim -c clk_tb -do "run -all; quit"
+> vlog rtl/*.v tb/Top_module_tb.v
+> vsim Top_module_tb
+> do "run -all; quit"
 ```
