@@ -44,7 +44,9 @@ The testbenches are designed to be compatible with **ModelSim**. Follow the step
 > vlog ../rtl/*.v *.v
 
 # 3. Run simulation (Example: Top-level verification)
-> vsim -c top_tb -do "run -all; quit"
+> vsim -c Top_module_tb -do "run -all; quit"
 ```
 
-Note: Captured waveform images (.png or .jpg) showing successful functional verification and state transitions are securely documented and can be found in the ../assets/ directory.
+---
+
+> 💡 **Note:** Captured waveform images (`.png` or `.jpg`) showing successful functional verification and state transitions are securely documented and can be found in the `../assets/` directory.
