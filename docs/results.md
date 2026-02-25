@@ -111,7 +111,7 @@ The waveform verifies correct `AM_PM` toggling during the transition from 11:59:
 
 The waveform below shows mode switching via `Control`, stopwatch control signals, and one-cycle `SW_State` assertion during transitions.
 
-![Top-Level Integration Waveform](../assets/waveforms/Top module_sim2.JPG)
+![Top-Level Integration Waveform](../assets/waveforms/Top_module_sim2.JPG)
 
 ---
 
