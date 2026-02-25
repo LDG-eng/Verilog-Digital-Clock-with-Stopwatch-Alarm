@@ -1,6 +1,6 @@
 # 🧪 Verification Overview (Testbench)
 
-This directory contains **ModelSim-based testbenches** for verifying the functional correctness of each RTL module. The verification process focuses on ensuring that timekeeping, alarm triggers, and stopwatch state transitions operate exactly as specified in the project requirements.
+This directory contains **ModelSim-based testbenches** for verifying the functional correctness of each RTL module. The verification process focuses on ensuring that timekeeping, alarm triggers, and stopwatch state transitions operate according to the project specifications
 
 ---
 
