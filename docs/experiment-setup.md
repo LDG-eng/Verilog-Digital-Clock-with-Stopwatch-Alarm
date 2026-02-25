@@ -31,7 +31,7 @@ Constraints were applied in simulation to ensure accurate timing behavior matchi
 - **Reset:** Global active-high reset signal applied to initialize all modules safely.
 - **Control Signals:** System state is driven by input stimuli (`LoadTime`, `LoadAlm`, `AlarmEnable`, `Start_S`, `Stop_S`, `Reset_S`) as defined in the RTL specifications.
 
-> **Note:** Exact FPGA/ASIC physical synthesis constraints (Area, Power) are **N/A** for this functional verification phase. Physical timing analysis was not the focus of this functional verification phase.
+> Note: Physical synthesis constraints (Area, Power) and static timing analysis were not the focus of this verification stage.
 
 ---
 
@@ -52,9 +52,7 @@ Each module is verified using its dedicated testbench to isolate and confirm spe
 ### 3. Waveform Analysis
 - Simulation results are captured and analyzed to ensure all transitions meet the design specifications.
 - **Key signals monitored:** Clocks, individual counters, AM/PM toggle, Alarm flag, and Stopwatch states.
-- Output waveforms are securely stored in `../assets/waveforms/` and visual screenshots are available in `../assets/`.
-
-
+- Output waveforms are stored in `../assets/waveforms/`, and screenshots are available in `../assets/`.
 
 ---
 
