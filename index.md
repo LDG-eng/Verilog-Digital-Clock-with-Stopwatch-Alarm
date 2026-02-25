@@ -1,59 +1,106 @@
+---
+title: "RTL Verilog Digital Clock with Stopwatch & Alarm"
+---
+
 # ⏰ Verilog Digital Clock  
-### RTL-Based Digital Design with Stopwatch & Alarm
+### RTL Digital Design with Stopwatch & Alarm
 
 ---
 
-## 📌 Project Overview
+## 📌 Project Summary
 
-This project implements a modular digital clock system in **Verilog HDL**, integrating:
+This project is a fully modular **digital clock system implemented in Verilog HDL**, incorporating:
 
-- 12-hour timekeeping with AM/PM
-- Millisecond-resolution stopwatch
-- Configurable 1-minute alarm trigger
-- Deterministic control logic with stop-state protection
+- Timekeeping with **12-hour AM/PM format**
+- **Stopwatch** with millisecond precision and state protection
+- Configurable **Alarm** that asserts for exactly one minute
+- Deterministic control logic and top-level mode switching
 
-The design was functionally verified using **ModelSim** and synthesized using **Xilinx Vivado** targeting the **ZCU104 Evaluation Board**.
+The design undergoes behavioral verification in **ModelSim** and logic synthesis using **Xilinx Vivado** targeting the **ZCU104 Evaluation Board**.
 
 ---
 
-## 🏗 System Architecture
+## 🧠 Design Motivation & Goals
 
-The system consists of four RTL modules:
+Modern embedded systems require precise timing, reliable mode control, and robust state handling.  
+This project aims to demonstrate a **realistic RTL design flow** (not just toy functionality):
 
-- `Top_module`
-- `clock_gen`
-- `alarm_clk`
-- `stopwatch`
+- Clear modular RTL architecture  
+- Testbench driven verification strategy  
+- Deterministic logic behavior under control sequences  
+- FPGA synthesis with resource efficiency  
+
+The design has been developed to reflect **practical engineering considerations** with no artificial simplification.
+
+---
+
+## 🏗 Architecture at a Glance
+
+**System Components:**
+
+- `Top_module.v`: Integrates all functional blocks  
+- `clock_gen.v`: Generates 1 second & 1 millisecond clocks  
+- `alarm_clk.v`: Handles timekeeping, alarm setting & triggering  
+- `stopwatch.v`: Stopwatch with start/stop/reset logic
+
+---
+
+## 🔹 Block Diagram
+
+A high-level overview of module interconnection:
 
 ![System Block Diagram](assets/images/system_block_diagram.png)
 
-👉 **[View Detailed Architecture](architecture.md)**
+---
+
+## 🛠 Tools & Environment
+
+| Category | Tool |
+|----------|------|
+| HDL | Verilog (RTL) |
+| Simulation | ModelSim |
+| Synthesis | Xilinx Vivado |
+| Target Board | ZCU104 Evaluation Board |
+
+Key activities:
+- Module-level verification
+- Top-level simulation
+- Logic synthesis & schematic inspection
 
 ---
 
 ## 🧪 Functional Verification
 
-Verification was performed at both module and top levels using ModelSim.
+### 📌 Testbench Strategy
 
-### ✔ Verified Scenarios
+Simulation is structured in two phases:
 
-- Correct 12-hour timekeeping and AM/PM transition
-- 1-minute alarm assertion when time matches configuration
-- Stopwatch start, pause, stop, and reset behavior
-- Deterministic recovery using `Reset_S` priority
-- One-cycle `SW_State` assertion on mode change
+1️⃣ **Module-Level Testbenches**  
+- Verify isolated behavior of submodules  
+- Clock generator accuracy
+- Stopwatch control and counter behavior
+- Alarm & timekeeping logic
+
+2️⃣ **Top-Level Integration Testbench**  
+- Mode switching behavior  
+- Interaction between stopwatch and clock/alarm
+- Assertion of status signals like `SW_State`
+
+Simulation waveforms confirm state transitions and timing behavior.
+
+---
+
+## 🔍 Top-Level Integration (Control + SW_State)
+
+Below waveform demonstrates integrated operation:
 
 ![Top-Level Integration Waveform](assets/waveforms/top_integration_waveform.png)
-
-👉 **[View Full Verification Details](verification.md)**
 
 ---
 
 ## 📈 Synthesis Results
 
-Synthesis was completed using Vivado.
-
-### ✔ Resource Utilization
+### ✔ FPGA Resource Utilization
 
 | Resource | Utilization |
 |----------|------------|
@@ -62,40 +109,61 @@ Synthesis was completed using Vivado.
 | IO       | 18% |
 | BUFG     | 1% |
 
-Low LUT and FF utilization indicate limited logic resource usage.
+The design occupies minimal FPGA resources and shows **modest logic complexity**.
 
-### ✔ Post-Synthesis Schematic
+---
+
+## 🔍 Post-Synthesis Hierarchy
+
+The gate-level schematic confirms structural consistency with RTL.
 
 ![Post-Synthesis Schematic](assets/images/synthesis_schematic.png)
 
-👉 **[View Synthesis Details](synthesis.md)**
+---
+
+## ⏱ Verified Behavior Summary
+
+✔ **Stopwatch**
+- Millisecond accuracy
+- Start, pause, stop, reset behavior
+- State protection preventing unintended resume
+
+✔ **Alarm & Clock**
+- Alarm triggers exactly for 60 seconds
+- `AM_PM` toggles at 12:00:00
+- Timekeeping independent of other states
+
+✔ **Mode Switching**
+- `Control` bit smoothly toggles modes
+- `SW_State` pulse on mode change
 
 ---
 
-## 🔎 Design Highlights
+## 🧾 Design Highlights
 
-- Modular RTL hierarchy
-- Separate always blocks for deterministic concurrent operation
-- Stop-state protection logic preventing unintended restart
-- Clean synthesis with minimal FPGA resource usage
-- Clear separation of verification and synthesis documentation
-
----
-
-## 📂 Repository Structure
-- rtl/ → Verilog RTL source files
-- tb/ → ModelSim testbenches
-- docs/ → GitHub Pages documentation
-- assets/ → Block diagrams & waveform images
+- Modular architecture with clear separation between functional units
+- Independent always blocks ensure deterministic concurrent operation
+- Control priority ensures correct reset behavior
+- Simulation waveforms and synthesis results corroborate correctness
 
 ---
 
-## 📌 Tools & Environment
+## 🗂 Repository Overview
+📦 Verilog-Digital-Clock-with-Stopwatch-Alarm
+┣ 📁 rtl/
+┣ 📁 tb/
+┣ 📁 docs/
+┣ 📁 assets/
+┣ ✨ GitHub Pages
+┗ 📄 README.md
 
-- **HDL:** Verilog (RTL)
-- **Simulation:** ModelSim
-- **Synthesis:** Xilinx Vivado
-- **Target Board:** ZCU104 Evaluation Board
+---
+
+## 📌 Next Steps (Optional Extensions)
+
+- Add hardware implementation on FPGA board with display interface  
+- Add real push-button / debouncing logic  
+- Integrate UART/SPI display driver for console visualization
 
 ---
 
