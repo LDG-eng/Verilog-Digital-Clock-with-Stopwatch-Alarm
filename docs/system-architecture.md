@@ -67,10 +67,10 @@ The system is composed of **four main modules**:
 ---
 
 ### 4️⃣ Top_module (Top-Level Module)
-- **Role:** Integrates `clock_gen`, `alarm_clk`, and `stopwatch` modules, and determines final outputs.  
+- **Role:** Integrates `clock_gen`, `alarm_clk`, and `stop` modules, and determines final outputs.  
 - **Inputs:**  
   - Main clock: `Clock_5K`, `Reset`  
-  - mode selection signals (`Control`, `LoadTime`, `LoadAlm`, etc.) for time/alarm/stopwatch setting
+  - Mode selection signals (`Control`, `LoadTime`, `LoadAlm`, etc.) for time/alarm/stopwatch setting
 - **Outputs:**  
   - `Hours`, `Mins`, `Secs`, `MSecs`  
   - `AM_PM`, `Alarm`  
