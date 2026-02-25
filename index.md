@@ -5,20 +5,19 @@
 
 ## 📌 Project Overview
 
-This project implements a modular **digital clock system in Verilog HDL**, integrating:
+This project implements a modular **digital clock system in Verilog HDL** integrating:
 
 - 12-hour timekeeping with AM/PM format
 - Millisecond-resolution stopwatch
 - Configurable alarm with exact 1-minute assertion
 - Deterministic control logic with stop-state protection
 
-The design was verified using **ModelSim** and synthesized using **Xilinx Vivado** targeting the **ZCU104 Evaluation Board**.
+The design was verified using **ModelSim** and synthesized using **Xilinx Vivado** targeting the ZCU104 device configuration.
 
-Design Scale:
-- 4 RTL modules
-- Module-level + top-level verification
-- Vivado FPGA synthesis completed
-
+Design scale:
+- 4 synthesizable RTL modules
+- Module-level and top-level verification
+- FPGA synthesis completed
 
 ---
 
@@ -59,6 +58,7 @@ The system consists of four main RTL modules:
 - Independent always blocks for concurrent logic
 - Top-level output multiplexing controlled by `Control`
 - Dedicated clock generation for second and millisecond resolution
+- Concurrent behavior implemented through independent always blocks
 
 ---
 
@@ -97,12 +97,12 @@ Verification was conducted using **ModelSim** with module-level and top-level te
 - Top-level integration simulation to confirm mode switching and cross-module behavior
 - Waveform inspection to confirm expected signal transitions and durations
 
-
-Verification focused on deterministic state transitions and edge-condition correctness.
+Verification focused on deterministic state transitions and edge-condition correctness.  
 Special attention was given to:
-- 11:59:59 → 12:00:00 rollover behavior
-- Stop-state protection logic
-- One-cycle SW_State pulse generation
+
+- 11:59:59 → 12:00:00 rollover behavior  
+- Stop-state protection logic  
+- One-cycle `SW_State` pulse generation  
 
 ---
 
@@ -132,7 +132,7 @@ This waveform demonstrates timekeeping edge behavior:
 
 ## 📈 FPGA Synthesis Results (Vivado)
 
-synthesized using **Xilinx Vivado** targeting the **ZCU104 Evaluation Board**. device configuration.
+Synthesis was performed using **Xilinx Vivado** targeting the device configuration of the **ZCU104 Evaluation Board**.
 
 ### ✔ Resource Utilization
 
@@ -143,7 +143,7 @@ synthesized using **Xilinx Vivado** targeting the **ZCU104 Evaluation Board**. d
 | IO       | 18% |
 | BUFG     | 1% |
 
-Low LUT and FF utilization indicates limited logic resource usage.
+Low LUT and FF utilization indicates modest combinational and sequential logic complexity relative to the target FPGA capacity.
 
 ---
 
@@ -161,10 +161,11 @@ No synthesis warnings related to combinational loops or unintended latches were 
 ## 🔍 Engineering Highlights
 
 This project demonstrates:
-- Structured modular RTL design
-- Deterministic control prioritization
-- Safe mode-switching without internal logic interruption
-- Synthesizable, FPGA-compatible implementation
+
+- Structured modular RTL partitioning
+- Deterministic reset and control prioritization
+- Glitch-free mode switching through output multiplexing
+- Clear separation between timekeeping, alarm logic, and stopwatch control
 
 ---
 
