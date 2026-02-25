@@ -18,7 +18,7 @@ The design was verified using **ModelSim** and synthesized using **Xilinx Vivado
 Design Scale:
 - 4 synthesizable RTL modules
 - Module-level and top-level verification
-- FPGA synthesis completed
+- synthesis completed
 
 ---
 
