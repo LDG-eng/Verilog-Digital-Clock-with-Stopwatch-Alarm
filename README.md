@@ -31,6 +31,25 @@ Stopwatch and Alarm functionalities are modularized and integrated at the top-le
  ┣ 📂 assets/       # Block diagrams, waveform images, and synthesis screenshots
  ┗ 📜 README.md     # Project documentation
 
+| Folder      | Description |
+|------------|------------|
+| firmware/  | RTL Verilog source files (`top.v`, `counter.v`, `stopwatch.v`, `alarm.v`, `display_controller.v`, `clock_divider.v`) |
+| tb/        | Module-level testbenches for behavioral simulation |
+| docs/      | System architecture, experiment setup, and verification results |
+| assets/    | Block diagrams, waveform images, and synthesis screenshots |
+| README.md  | Top-level project introduction |
+| LICENSE    | License information |
+
+
+
+> Notes:  
+> - `rtl/` contains all functional modules (`top.v`, `counter.v`, `stopwatch.v`, `alarm.v`, `display_controller.v`, `clock_divider.v`)  
+> - `tb/` contains module-level testbenches for verification  
+> - `docs/` contains architecture, experiment setup, and results  
+> - `assets/` contains block diagrams, waveform images, and synthesis screenshots
+
+
+
 ## 📈 Synthesis Results
 *(Exact tool report values not provided, summarized placeholders below)*
 
