@@ -9,10 +9,10 @@ The design is modularized for maintainability, testability, and clear top-level 
 
 | Module Name             | Description |
 |-------------------------|-------------|
-| Top_module.v          | Top-level module. Integrates Clock, Stopwatch, Alarm, Display Controller, and Clock Divider. Manages reset and mode selection. |
-| clock_gen.v           | Divides input clock to generate 1Hz and other required lower-frequency clocks for counters. |
-| stopwatch.v           | Implements Stopwatch functionality: start, stop, and reset operations. Independent from main clock counters. |
-| alarm_clk.v           | Compares current time with user-set alarm time and triggers an output signal when matched. |
+| Top_module.v          | Top-level integration module. Connects the clock generator, main clock/alarm, and stopwatch modules.|
+| clock_gen.v           | Divides the 5KHz input clock to generate a 1Hz (1 Sec) clock for the main timekeeping and a 1KHz (1 MSec) clock for the stopwatch. |
+| stopwatch.v           | Implements Stopwatch functionality with millisecond precision. Includes independent start, stop, and reset operations based on a state machine. |
+| alarm_clk.v           | Core timekeeping and alarm module. Tracks current time (Hours, Mins, Secs) and compares it with the user-set alarm time to trigger an alert. |
 
 > Notes: The design has been **RTL-synthesized**, and all modules have associated **module-level testbenches** in `tb/`.
 
@@ -26,9 +26,9 @@ The design is modularized for maintainability, testability, and clear top-level 
 ---
 
 ## 🛠️ Usage Notes
-- All modules are instantiated in `top.v` for system integration.  
-- Each module has a dedicated **testbench** for behavioral simulation using **ModelSim**.  
-- The RTL code follows **structural and behavioral Verilog best practices**, suitable for synthesis and further FPGA/ASIC implementation.
+- All sub-modules are instantiated in `Top_module.v` for seamless system operation and mode switching.
+- Each module has a dedicated **testbench** for behavioral simulation using **ModelSim**.
+- The RTL code adheres to the project specifications, covering standard digital design practices suitable for structural synthesis.
 
 ---
 
