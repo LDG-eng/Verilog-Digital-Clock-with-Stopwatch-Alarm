@@ -28,7 +28,7 @@ Stopwatch and Alarm functionalities are modularized and integrated at the top-le
 📦 Verilog-Digital-Clock-with-Stopwatch-Alarm
 - 📁 **rtl/**  
   Verilog RTL source files (.v)  
-  *Modules:* `top.v`, `stopwatch.v`, `alarm.v`, `clock_gen.v`
+  *Modules:* `Top_module.v`, `stopwatch.v`, `alarm_clk.v`, `clock_gen.v`
 - 📁 **tb/**  
   Module-level testbenches for behavioral simulation
 - 📁 **docs/**  
