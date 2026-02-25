@@ -10,13 +10,13 @@ The design is modular and RTL-synthesizable, intended for behavioral simulation 
 - **Time Format:**  
   - Seconds and minutes: 0–59  
   - Hours: 1–12  
-- **AM/PM Handling:** Switches at 11:59:59. (AM 12 = midnight, PM 12 = noon)  
+- **AM/PM Handling:** Toggles at 12:00:00 (transition from 11:59:59).
 
 ---
 
 ## 🏗️ Module Hierarchy
 
-The system is composed of **four main modules**:
+The system consists of one top-level module and three functional submodules:
 
 - ⚙️ **`Top_module.v`** (Top-level Integration)
   - ⏱️ `clock_gen.v`   # Clock generator module
@@ -50,6 +50,8 @@ The system is composed of **four main modules**:
   - `Secs_C`, `Mins_C`, `Hours_C`  
 - **Special Notes:**  
   - When current time matches alarm time, alarm triggers for **1 minute** (from 0 to 59 seconds of that minute)
+  - The module separates timekeeping, setting, and alarm logic into independent always blocks.
+  - This separation was intentionally designed to avoid synthesis conflicts and improve timing reliability.
 
 ---
 
@@ -61,8 +63,8 @@ The system is composed of **four main modules**:
 - **Outputs:**  
   - `Hours_S`, `Mins_S`, `Secs_S`, `MSecs_S`  
 - **Special Notes:**  
-  - Once `Stop_S` is 1, the stopwatch halts completely.  
-  - Restarting requires `Reset_S` to be 1; simply toggling `Start_S` will not resume.
+  - Once `Stop_S` is 1, the stopwatch halts completely.
+  - The module includes a state-protection mechanism: once `Stop_S` is asserted, the stopwatch cannot restart until `Reset_S` is applied.
 
 ---
 
@@ -74,8 +76,10 @@ The system is composed of **four main modules**:
 - **Outputs:**  
   - `Hours`, `Mins`, `Secs`, `MSecs`  
   - `AM_PM`, `Alarm`  
-  - Stopwatch state: `SW_State`  
-
+  - Stopwatch state: `SW_State`
+- **Special Notes:**
+  - `SW_State` is asserted for one `Clock_5K` cycle when `Control` changes.
+    
 ---
 
 > This textual architecture provides a clear overview of module interactions and signal flow.  
