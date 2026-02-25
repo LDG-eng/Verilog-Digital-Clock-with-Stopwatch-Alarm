@@ -24,7 +24,6 @@ Stopwatch and Alarm functionalities are modularized and integrated at the top-le
 3. **Logic Synthesis:** Synthesized top-level RTL with `[synthesis tool: 확실하지 않음]` to confirm gate-level mapping and timing
 
 ## 🗂️ Repository Structure
-```text
 📦 Verilog-Digital-Clock-with-Stopwatch-Alarm
  ┣ 📂 rtl/          # Verilog RTL source files (.v)
  ┣ 📂 tb/           # Module-level testbenches for behavioral simulation
@@ -50,7 +49,6 @@ Stopwatch and Alarm functionalities are modularized and integrated at the top-le
 * **Documentation**: Clear documentation of architecture, simulation setup, and verification results.
 
 ## 🚀 How to Run Simulation
-```bash
 # Compile and run the top-level testbench using Icarus Verilog
 iverilog -o clock_tb tb/top_tb.v firmware/*.v
 vvp clock_tb
