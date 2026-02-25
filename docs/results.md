@@ -51,6 +51,11 @@ The stopwatch operates at 1 ms resolution using `Clock_1MSec`.
 
 This confirms the intended hierarchical counter structure and stop-state protection logic.
 
+
+### 🔍 Stopwatch Waveform
+
+![Stopwatch Waveform](../assets/waveforms/stopwatch_sim.JPG)
+
 ---
 
 ## 3️⃣ Alarm & Clock Functional Verification
