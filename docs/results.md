@@ -79,7 +79,7 @@ The `alarm_clk` module was verified under the following conditions:
 
 The waveform below confirms that the `Alarm` signal remains asserted for exactly one minute (0–59 seconds) when the current time matches the configured alarm time and `AlarmEnable = 1`.
 
-![Alarm Trigger Waveform](../assets/waveforms/alarm_clk sim2.JPG)
+![Alarm Trigger Waveform](../assets/waveforms/alarm_clk_sim2.JPG)
 
 ### ✔ AM/PM Switching
 - At 12:00:00, the `AM_PM` parameter toggles.
@@ -89,7 +89,7 @@ The waveform below confirms that the `Alarm` signal remains asserted for exactly
 
 The waveform verifies correct `AM_PM` toggling during the transition from 11:59:59 to 12:00:00.
 
-![AM/PM Transition Waveform](../assets/waveforms/alarm_clk sim3.JPG)
+![AM/PM Transition Waveform](../assets/waveforms/alarm_clk_sim3.JPG)
 
 
 ### ✔ Concurrent Operation
