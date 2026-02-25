@@ -116,10 +116,11 @@ Synthesis was performed using **Vivado** targeting the **ZCU104 Evaluation Board
 - IO utilization differed from reference material (reason not fully identified).
 - Low LUT and FF utilization indicate limited logic resource usage.
 
-### ✔ Gate-Level Output
 
-- Post-synthesis schematic was generated successfully.
-- Gate-level structure matches RTL hierarchy.
+### 🔍 Post-Synthesis Schematic
+The post-synthesis schematic was generated in Vivado to confirm gate-level hierarchy and module connectivity.
+
+![Post-Synthesis Schematic](../assets/images/schematic.JPG)
 
 ---
 
