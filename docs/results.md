@@ -107,6 +107,12 @@ The waveform verifies correct `AM_PM` toggling during the transition from 11:59:
 - On every change of `Control`, `SW_State` becomes high for exactly one `Clock_5K` cycle.
 - Verified through waveform observation.
 
+### 🔍 Top-Level Integration Waveform
+
+The waveform below shows mode switching via `Control`, stopwatch control signals, and one-cycle `SW_State` assertion during transitions.
+
+![Top-Level Integration Waveform](../assets/waveforms/Top module_sim2.JPG)
+
 ---
 
 ## 5️⃣ Synthesis Results
