@@ -1,7 +1,3 @@
----
-title: "RTL Verilog Digital Clock with Stopwatch & Alarm"
----
-
 # ⏰ Verilog Digital Clock with Stopwatch & Alarm
 ### RTL-Based Digital Design & FPGA Synthesis
 
@@ -56,7 +52,7 @@ The system consists of four main RTL modules:
 
 ### 🔹 Block Diagram
 
-![System Block Diagram](assets/images/system_block_diagram.png)
+![System Block Diagram](assets/images/system_block_diagarm.png)
 
 ### 🔹 Architectural Characteristics
 
@@ -155,7 +151,7 @@ The design occupies minimal FPGA logic resources, indicating modest logic comple
 
 The generated schematic confirms structural alignment with the RTL hierarchy.
 
-![Post-Synthesis Schematic](assets/images/synthesis_schematic.png)
+![Post-Synthesis Schematic](assets/images/schematic.JPG)
 
 ---
 
