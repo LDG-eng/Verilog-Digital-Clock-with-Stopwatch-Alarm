@@ -20,8 +20,8 @@ The system is composed of **four main modules**:
 
 - ⚙️ **`Top_module.v`** (Top-level Integration)
   - ⏱️ `clock_gen.v`   # Clock generator module
-  - 🛑 `stopwatch.v`   # Current time & alarm module
-  - 🔔 `alarm_clk.v`   # Stopwatch module
+  - 🛑 `stopwatch.v`   # Stopwatch module
+  - 🔔 `alarm_clk.v`   # Current time & alarm module
 
 ---
 
