@@ -1,6 +1,6 @@
 title: "Verilog Digital Clock"
 description: "RTL design with Stopwatch & Alarm (ModelSim verification, Vivado synthesis on ZCU104)"
-theme: jekyll-theme-cayman
+theme: jekyll-theme-merlot
 
 # If your repo is https://github.com/<user>/<repo>
 # baseurl should be "/<repo>"
