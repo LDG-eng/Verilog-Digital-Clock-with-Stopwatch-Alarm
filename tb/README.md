@@ -10,7 +10,7 @@ This directory contains **ModelSim-based testbenches** for verifying the functio
 |--------------------|-------------------|--------------------|
 | `clock_generator_tb.v` | `clock_gen.v`     | Accuracy of 1Hz (1 Sec) and 1KHz (1 MSec) clock division from the 5KHz input clock. |
 | `alarm_clk_tb.v`   | `alarm_clk.v`     | Time increment logic, 12-hour AM/PM transitions, and 1-minute alarm duration trigger. |
-| `stopwatch_tb.v`   | `stopwatch.v`     | State machine transitions (Start, Pause, Reset) and MSec counter logic. |
+| `stopwatch_tb.v`   | `stopwatch.v`     | Stopwatch control logic (Start, Pause, Stop, Reset) and millisecond counter behavior. |
 | `Top_module_tb.v`  | `Top_module.v`    | System-level integration, mode switching (Clock vs. Stopwatch), and overall stability. |
 
 ---
@@ -21,10 +21,10 @@ This directory contains **ModelSim-based testbenches** for verifying the functio
 All modules underwent behavioral simulation using **ModelSim** to confirm logical accuracy before synthesis. Key verifications include:
 * **Timekeeping:** Seconds and minutes accurately reset at 59, and hours transition from 12 to 1 correctly.
 * **Stopwatch Logic:** The system correctly maintains or resets its state based on the strict priority of `Stop_S` and `Reset_S` signals.
-* **Mode Control:** Confirmed seamless transitions without signal glitches when switching display modes.
+* **Mode Control:** Verified correct mode switching behavior when the `Control` signal changes.
 
 ### 2. Waveform Analysis
-Simulation results were analyzed via waveform viewers to ensure timing constraints and signal transitions (such as `SW_State` or `Alarm` flags) met the design specifications.
+Simulation waveforms were analyzed to verify correct signal transitions and logical behavior.
 
 *(Example: Stopwatch & Clock Generator Verification Waveforms)*
 ![Stopwatch Simulation Waveform](../assets/stopwatch_waveform.png)
@@ -49,4 +49,4 @@ The testbenches are designed to be compatible with **ModelSim**. Follow the step
 
 ---
 
-> 💡 **Note:** Captured waveform images (`.png` or `.jpg`) showing successful functional verification and state transitions are securely documented and can be found in the `../assets/` directory.
+> 💡 **Note:** Captured waveform images are available in the `../assets/` directory.
