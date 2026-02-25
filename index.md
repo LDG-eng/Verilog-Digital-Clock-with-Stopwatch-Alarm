@@ -175,7 +175,6 @@ Overall, this project validates a clean, modular RTL implementation that is func
 - **HDL:** Verilog (RTL)
 - **Simulation:** ModelSim
 - **Synthesis:** Xilinx Vivado
-- **Target Board:** ZCU104 Evaluation Board
 
 ---
 
