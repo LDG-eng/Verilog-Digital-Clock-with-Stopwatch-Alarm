@@ -2,105 +2,143 @@
 title: "RTL Verilog Digital Clock with Stopwatch & Alarm"
 ---
 
-# ⏰ Verilog Digital Clock  
-### RTL Digital Design with Stopwatch & Alarm
+# ⏰ Verilog Digital Clock with Stopwatch & Alarm
+### RTL-Based Digital Design & FPGA Synthesis
 
 ---
 
-## 📌 Project Summary
+## 📌 1. Project Overview
 
-This project is a fully modular **digital clock system implemented in Verilog HDL**, incorporating:
+This project implements a modular **digital clock system in Verilog HDL**, integrating:
 
-- Timekeeping with **12-hour AM/PM format**
-- **Stopwatch** with millisecond precision and state protection
-- Configurable **Alarm** that asserts for exactly one minute
-- Deterministic control logic and top-level mode switching
+- 12-hour timekeeping with AM/PM format
+- Millisecond-resolution stopwatch
+- Configurable alarm with exact 1-minute assertion
+- Deterministic control logic with state protection
 
-The design undergoes behavioral verification in **ModelSim** and logic synthesis using **Xilinx Vivado** targeting the **ZCU104 Evaluation Board**.
+The objective is to demonstrate a realistic **RTL-based digital design flow**, including:
 
----
+- Modular RTL architecture
+- Structured simulation verification
+- Deterministic control prioritization
+- FPGA synthesis and gate-level inspection
 
-## 🧠 Design Motivation & Goals
-
-Modern embedded systems require precise timing, reliable mode control, and robust state handling.  
-This project aims to demonstrate a **realistic RTL design flow** (not just toy functionality):
-
-- Clear modular RTL architecture  
-- Testbench driven verification strategy  
-- Deterministic logic behavior under control sequences  
-- FPGA synthesis with resource efficiency  
-
-The design has been developed to reflect **practical engineering considerations** with no artificial simplification.
+The design was verified using **ModelSim** and synthesized using **Xilinx Vivado** targeting the **ZCU104 Evaluation Board**.
 
 ---
 
-## 🏗 Architecture at a Glance
+## 🧠 2. Design Objectives
 
-**System Components:**
+This project focuses on:
 
-- `Top_module.v`: Integrates all functional blocks  
-- `clock_gen.v`: Generates 1 second & 1 millisecond clocks  
-- `alarm_clk.v`: Handles timekeeping, alarm setting & triggering  
-- `stopwatch.v`: Stopwatch with start/stop/reset logic
+- Accurate timekeeping logic (0–59 sec/min, 1–12 hour format)
+- Reliable state transitions under control signals
+- Concurrent operation without unintended interference
+- Synthesizable RTL structure for FPGA deployment
+
+Unlike simplified classroom examples, this implementation includes explicit handling of:
+
+- Reset priority logic
+- Stop-state protection
+- Mode switching side-effects
+- Alarm duration enforcement
 
 ---
 
-## 🔹 Block Diagram
+## 🏗 3. System Architecture
 
-A high-level overview of module interconnection:
+The system consists of four main RTL modules:
+
+- `Top_module`
+- `clock_gen`
+- `alarm_clk`
+- `stopwatch`
+
+### 🔹 Block Diagram
 
 ![System Block Diagram](assets/images/system_block_diagram.png)
 
----
+### 🔹 Architectural Characteristics
 
-## 🛠 Tools & Environment
-
-| Category | Tool |
-|----------|------|
-| HDL | Verilog (RTL) |
-| Simulation | ModelSim |
-| Synthesis | Xilinx Vivado |
-| Target Board | ZCU104 Evaluation Board |
-
-Key activities:
-- Module-level verification
-- Top-level simulation
-- Logic synthesis & schematic inspection
+- Clear separation of functional units
+- Independent always blocks for concurrent logic
+- Top-level output multiplexing controlled by `Control`
+- Dedicated clock generation for second and millisecond resolution
 
 ---
 
-## 🧪 Functional Verification
+## ⏱ 4. Functional Design Details
 
-### 📌 Testbench Strategy
-
-Simulation is structured in two phases:
-
-1️⃣ **Module-Level Testbenches**  
-- Verify isolated behavior of submodules  
-- Clock generator accuracy
-- Stopwatch control and counter behavior
-- Alarm & timekeeping logic
-
-2️⃣ **Top-Level Integration Testbench**  
-- Mode switching behavior  
-- Interaction between stopwatch and clock/alarm
-- Assertion of status signals like `SW_State`
-
-Simulation waveforms confirm state transitions and timing behavior.
+### 4.1 Clock Generator (`clock_gen`)
+- Input: 5 KHz clock
+- Output: 1 Hz (timekeeping), 1 KHz (stopwatch)
+- Deterministic clock division logic
 
 ---
 
-## 🔍 Top-Level Integration (Control + SW_State)
+### 4.2 Alarm & Timekeeping (`alarm_clk`)
+- 12-hour AM/PM logic
+- Alarm trigger when time matches configured value
+- Alarm remains asserted for exactly 60 seconds
+- Independent always blocks for time increment and alarm comparison
 
-Below waveform demonstrates integrated operation:
+---
+
+### 4.3 Stopwatch (`stopwatch`)
+- Millisecond precision counting
+- Start / Pause / Stop / Reset logic
+- Stop-state protection
+- Reset priority over Stop signal
+
+---
+
+### 4.4 Top-Level Integration
+- Mode switching via `Control`
+- `SW_State` asserted for one clock cycle on mode transition
+- Output forwarding based on active mode
+- Internal modules operate independently of display mode
+
+---
+
+## 🧪 5. Functional Verification
+
+Verification was conducted using **ModelSim**.
+
+### ✔ Module-Level Verification
+- Clock division correctness
+- Stopwatch counter carry structure
+- Alarm comparison logic
+- Reset priority behavior
+
+### ✔ Top-Level Integration Verification
+
+The waveform below shows:
+
+- Mode switching via `Control`
+- Stopwatch operation
+- One-cycle `SW_State` pulse
 
 ![Top-Level Integration Waveform](assets/waveforms/top_integration_waveform.png)
 
 ---
 
-## 📈 Synthesis Results
+### ✔ AM/PM Transition & Alarm Trigger
 
-### ✔ FPGA Resource Utilization
+The following waveform confirms:
+
+- 11:59:59 → 12:00:00 transition
+- Correct AM/PM toggle
+- 1-minute alarm assertion
+
+![AM/PM & Alarm Waveform](assets/waveforms/am_pm_alarm_waveform.png)
+
+---
+
+## 📈 6. FPGA Synthesis Results
+
+Synthesis was performed using **Xilinx Vivado**.
+
+### ✔ Resource Utilization
 
 | Resource | Utilization |
 |----------|------------|
@@ -109,61 +147,43 @@ Below waveform demonstrates integrated operation:
 | IO       | 18% |
 | BUFG     | 1% |
 
-The design occupies minimal FPGA resources and shows **modest logic complexity**.
+The design occupies minimal FPGA logic resources, indicating modest logic complexity.
 
 ---
 
-## 🔍 Post-Synthesis Hierarchy
+### ✔ Post-Synthesis Hierarchy
 
-The gate-level schematic confirms structural consistency with RTL.
+The generated schematic confirms structural alignment with the RTL hierarchy.
 
 ![Post-Synthesis Schematic](assets/images/synthesis_schematic.png)
 
 ---
 
-## ⏱ Verified Behavior Summary
+## 🔍 7. Engineering Highlights
 
-✔ **Stopwatch**
-- Millisecond accuracy
-- Start, pause, stop, reset behavior
-- State protection preventing unintended resume
-
-✔ **Alarm & Clock**
-- Alarm triggers exactly for 60 seconds
-- `AM_PM` toggles at 12:00:00
-- Timekeeping independent of other states
-
-✔ **Mode Switching**
-- `Control` bit smoothly toggles modes
-- `SW_State` pulse on mode change
+- Modular and synthesizable RTL design
+- Deterministic reset and stop-state behavior
+- Independent concurrent operation via separate always blocks
+- Clean integration between control logic and display outputs
+- Low FPGA resource usage
 
 ---
 
-## 🧾 Design Highlights
+## 📌 8. Development Environment
 
-- Modular architecture with clear separation between functional units
-- Independent always blocks ensure deterministic concurrent operation
-- Control priority ensures correct reset behavior
-- Simulation waveforms and synthesis results corroborate correctness
-
----
-
-## 🗂 Repository Overview
-📦 Verilog-Digital-Clock-with-Stopwatch-Alarm
-┣ 📁 rtl/
-┣ 📁 tb/
-┣ 📁 docs/
-┣ 📁 assets/
-┣ ✨ GitHub Pages
-┗ 📄 README.md
+- HDL: Verilog (RTL)
+- Simulation: ModelSim
+- Synthesis: Xilinx Vivado
+- Target Board: ZCU104 Evaluation Board
 
 ---
 
-## 📌 Next Steps (Optional Extensions)
-
-- Add hardware implementation on FPGA board with display interface  
-- Add real push-button / debouncing logic  
-- Integrate UART/SPI display driver for console visualization
+## 📂 Repository Structure
+rtl/ → RTL source files
+tb/ → ModelSim testbenches
+assets/ → Diagrams & waveforms
+README.md → GitHub overview
+index.md → GitHub Pages site
 
 ---
 
