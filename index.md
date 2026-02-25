@@ -14,6 +14,12 @@ This project implements a modular **digital clock system in Verilog HDL**, integ
 
 The design was verified using **ModelSim** and synthesized using **Xilinx Vivado** targeting the **ZCU104 Evaluation Board**.
 
+Design Scale:
+- 4 RTL modules
+- Module-level + top-level verification
+- Vivado FPGA synthesis completed
+
+
 ---
 
 ## 🧠 Design Objectives
@@ -22,7 +28,7 @@ This project focuses on:
 
 - Accurate timekeeping logic (0–59 sec/min, 1–12 hour format)
 - Reliable state transitions under control signals
-- Concurrent operation without unintended interference
+- Concurrent operation ensured via independent always blocks
 - Synthesizable RTL structure for FPGA deployment
 
 Key design considerations covered in this implementation:
@@ -91,6 +97,13 @@ Verification was conducted using **ModelSim** with module-level and top-level te
 - Top-level integration simulation to confirm mode switching and cross-module behavior
 - Waveform inspection to confirm expected signal transitions and durations
 
+
+Verification focused on deterministic state transitions and edge-condition correctness.
+Special attention was given to:
+- 11:59:59 → 12:00:00 rollover behavior
+- Stop-state protection logic
+- One-cycle SW_State pulse generation
+
 ---
 
 ### 🔍 Top-Level Integration Waveform
@@ -119,7 +132,7 @@ This waveform demonstrates timekeeping edge behavior:
 
 ## 📈 FPGA Synthesis Results (Vivado)
 
-Synthesis was performed using **Xilinx Vivado** targeting the **ZCU104 Evaluation Board**.
+synthesized using **Xilinx Vivado** targeting the **ZCU104 Evaluation Board**. device configuration.
 
 ### ✔ Resource Utilization
 
@@ -140,15 +153,18 @@ The schematic below was generated after synthesis to confirm hierarchy and conne
 
 ![Post-Synthesis Schematic](assets/images/schematic.JPG)
 
+The low resource utilization confirms that the design complexity is minimal relative to the target FPGA capacity.
+No synthesis warnings related to combinational loops or unintended latches were observed.
+
 ---
 
 ## 🔍 Engineering Highlights
 
-- Modular and synthesizable RTL design
-- Deterministic reset and stop-state behavior
-- Independent concurrent operation via separate always blocks
-- Clean integration between control logic and display outputs
-- Low FPGA resource usage after synthesis
+This project demonstrates:
+- Structured modular RTL design
+- Deterministic control prioritization
+- Safe mode-switching without internal logic interruption
+- Synthesizable, FPGA-compatible implementation
 
 ---
 
