@@ -7,6 +7,10 @@ The design integrates a real-time clock, a precision stopwatch, and a programmab
 The project demonstrates a typical RTL-based digital design flow, from behavioral simulation to FPGA-level synthesis.
 Stopwatch and Alarm functionalities are modularized and integrated at the top-level RTL design.  
 
+## 🏗️ System Architecture
+
+![System Block Diagram](assets/images/system_block_diagram.png)
+
 ## ✨ Key Features
 * **🕰️ Timekeeping**: Hours, minutes, and seconds counter with 12-hour AM/PM format
 * **⏱️ Stopwatch**: Independent start, stop, and reset functionality with millisecond precision
@@ -47,7 +51,7 @@ Stopwatch and Alarm functionalities are modularized and integrated at the top-le
 | Resource Utilization  | LUT: 1%, FF: 1%, IO: 18%, BUFG: 1% |\
 | Target Board | ZCU104 Evaluation Board |
 
-> Screenshot of synthesis report: `assets/images/synthesis_report.png`  
+![Synthesis Utilization](assets/images/synthesis.JPG)
 
 ## 🚀 Key Contributions
 * **Modular RTL Design**: Top-level integration of core clock, stopwatch, and alarm modules.
