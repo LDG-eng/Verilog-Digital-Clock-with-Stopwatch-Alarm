@@ -1,3 +1,4 @@
 title: "Verilog Digital Clock"
 description: "RTL design with Stopwatch & Alarm (ModelSim verification, Vivado synthesis on ZCU104)"
-theme: jekyll-theme-cryman
+
+theme: jekyll-theme-cayman
