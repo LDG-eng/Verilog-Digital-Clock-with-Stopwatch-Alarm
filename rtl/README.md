@@ -11,10 +11,10 @@ The design is modularized for maintainability, testability, and clear top-level 
 |-------------------------|-------------|
 | Top_module.v          | Top-level integration module. Connects the clock generator, main clock/alarm, and stopwatch modules.|
 | clock_gen.v           | Divides the 5KHz input clock to generate a 1Hz (1 Sec) clock for the main timekeeping and a 1KHz (1 MSec) clock for the stopwatch. |
-| stopwatch.v           | Implements Stopwatch functionality with millisecond precision. Includes independent start, stop, and reset operations based on a state machine. |
-| alarm_clk.v           | Core timekeeping and alarm module. Tracks current time (Hours, Mins, Secs) and compares it with the user-set alarm time to trigger an alert. |
+| stopwatch.v           | Implements Stopwatch functionality with millisecond precision. Includes start, stop, and reset control logic with state-protection behavior. |
+| alarm_clk.v           | Core timekeeping and alarm module. Tracks current time (Hours, Mins, Secs) in 12-hour format with AM/PM handling and triggers a 1-minute alarm when the set time matches. |
 
-> Notes: The design has been **RTL-synthesized**, and all modules have associated **module-level testbenches** in `tb/`.
+> Notes: all modules have associated **module-level testbenches** in `tb/`.
 
 ### 🏗️ Module Hierarchy
 
@@ -28,7 +28,8 @@ The design is modularized for maintainability, testability, and clear top-level 
 ## 🛠️ Usage Notes
 - All sub-modules are instantiated in `Top_module.v` for seamless system operation and mode switching.
 - Each module has a dedicated **testbench** for behavioral simulation using **ModelSim**.
-- The RTL code adheres to the project specifications, covering standard digital design practices suitable for structural synthesis.
+- The RTL code follows synthesizable design practices compatible with FPGA implementation.
+- The RTL design has been successfully synthesized using Vivado.
 
 ---
 
