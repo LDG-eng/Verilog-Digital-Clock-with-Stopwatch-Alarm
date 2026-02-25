@@ -25,7 +25,7 @@ The system consists of one top-level module and three functional submodules:
 
 ## 🏗️ Block Diagram
 
-![System Block Diagram](../assets/images/system_block_diagram.png)
+![System Block Diagram](../assets/images/system_block_diagarm.png)
 
 ---
 
