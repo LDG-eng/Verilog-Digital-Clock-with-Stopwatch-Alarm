@@ -44,7 +44,7 @@ Stopwatch and Alarm functionalities are modularized and integrated at the top-le
 | Metric             | Result               |
 |-------------------|--------------------|
 | Target Frequency   | 5KHz (Main Clock)       |
-| Total Area         | Nonexistent             |
+| Total Area         | N/A                     |
 | Setup/Hold Slack   | Met timing requirements |
 
 > Screenshot of synthesis report: `assets/images/synthesis_report.png`  
@@ -61,3 +61,4 @@ Stopwatch and Alarm functionalities are modularized and integrated at the top-le
 > vlib work
 > vlog rtl/*.v tb/clk_tb.v
 > vsim -c clk_tb -do "run -all; quit"
+```
