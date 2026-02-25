@@ -75,10 +75,7 @@ Top
   - `Hours`, `Mins`, `Secs`, `MSecs`  
   - `AM_PM`, `Alarm`  
   - Stopwatch state: `SW_State`  
-- **Notes:**  
-  - Controls multiplexed 7-segment display output based on mode (Clock vs Stopwatch)
 
 ---
 
 > This textual architecture provides a clear overview of module interactions and signal flow.  
-> Although no block diagram image is provided, the hierarchy above reflects RTL instantiation and port connections.
