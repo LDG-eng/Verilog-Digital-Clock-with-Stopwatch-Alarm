@@ -8,10 +8,10 @@ This directory contains **ModelSim-based testbenches** for verifying the functio
 
 | File Name          | Targeted Module   | Verification Focus |
 |--------------------|-------------------|--------------------|
-| `clk_tb.v`         | `clock_gen.v`     | Accuracy of 1Hz (1 Sec) and 1KHz (1 MSec) clock division from the 5KHz input clock. |
+| `clock_generator_tb.v` | `clock_gen.v`     | Accuracy of 1Hz (1 Sec) and 1KHz (1 MSec) clock division from the 5KHz input clock. |
 | `alarm_clk_tb.v`   | `alarm_clk.v`     | Time increment logic, 12-hour AM/PM transitions, and 1-minute alarm duration trigger. |
 | `stopwatch_tb.v`   | `stopwatch.v`     | State machine transitions (Start, Pause, Reset) and MSec counter logic. |
-| `top_tb.v`         | `Top_module.v`    | System-level integration, mode switching (Clock vs. Stopwatch), and overall stability. |
+| `Top_module_tb.v`  | `Top_module.v`    | System-level integration, mode switching (Clock vs. Stopwatch), and overall stability. |
 
 ---
 
