@@ -162,11 +162,24 @@ The schematic below was generated after synthesis to confirm hierarchy and conne
 ---
 
 ## 📂 Repository Structure
-rtl/ → RTL source files
-tb/ → ModelSim testbenches
-assets/ → Diagrams & waveforms
-README.md → GitHub overview
-index.md → GitHub Pages site
+- rtl/  
+  Verilog RTL source files  
+  - Top_module.v  
+  - clock_gen.v  
+  - alarm_clk.v  
+  - stopwatch.v  
+- tb/  
+  ModelSim testbenches  
+  - Top_module_tb.v  
+  - alarm_clk_tb.v  
+  - clock_generator_tb.v  
+  - stopwatch_tb.v  
+- assets/  
+  Block diagrams, synthesis images, and waveform captures  
+- README.md  
+  GitHub overview documentation  
+- index.md  
+  GitHub Pages main site  
 
 ---
 
