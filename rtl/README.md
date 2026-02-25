@@ -9,10 +9,10 @@ The design is modularized for maintainability, testability, and clear top-level 
 
 | Module Name             | Description |
 |-------------------------|-------------|
-| `top.v`                 | Top-level module. Integrates Clock, Stopwatch, Alarm, Display Controller, and Clock Divider. Manages reset and mode selection. |
-| `clock_gen.v`           | Divides input clock to generate 1Hz and other required lower-frequency clocks for counters. |
-| `stopwatch.v`           | Implements Stopwatch functionality: start, stop, and reset operations. Independent from main clock counters. |
-| `alarm.v`               | Compares current time with user-set alarm time and triggers an output signal when matched. |
+| top.v                 | Top-level module. Integrates Clock, Stopwatch, Alarm, Display Controller, and Clock Divider. Manages reset and mode selection. |
+| clock_gen.v           | Divides input clock to generate 1Hz and other required lower-frequency clocks for counters. |
+| stopwatch.v           | Implements Stopwatch functionality: start, stop, and reset operations. Independent from main clock counters. |
+| alarm.v               | Compares current time with user-set alarm time and triggers an output signal when matched. |
 
 > Notes: The design has been **RTL-synthesized**, and all modules have associated **module-level testbenches** in `tb/`.
 
