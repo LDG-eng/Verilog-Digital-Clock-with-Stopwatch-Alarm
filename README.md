@@ -8,27 +8,27 @@ The project demonstrates the **standard cell-based digital IC design flow**, fro
 Stopwatch and Alarm functionalities are modularized and integrated at the top-level RTL design.  
 
 ## ✨ Key Features
-* **🕰️ Timekeeping**: Hours, minutes, and seconds counter.
-* **⏱️ Stopwatch**: Independent start, stop, and reset functionality.
-* **🔔 Alarm System**: Configurable alert triggered at a user-set time.
-* **🎛️ Mode Control**: Seamless switching between Clock, Alarm Set, and Stopwatch modes via button inputs.
+* **🕰️ Timekeeping**: Hours, minutes, and seconds counter with 12-hour AM/PM format
+* **⏱️ Stopwatch**: Independent start, stop, and reset functionality with millisecond precision
+* **🔔 Alarm System**: Configurable alert triggered at a user-set time, maintaining the alarm state for 1 minute
+* **🎛️ Mode Control**: Seamless switching between Clock, Alarm Set, and Stopwatch modes via control inputs
 
 ## 🛠️ Tools & Environment
 * **HDL:** Verilog (RTL)  
-* **Simulation:** Module-level testbenches (`tb/`)  
-* **Synthesis Tool:** `[확실하지 않음]`  
+* **Simulation:** ModelSim (Module-level & Top-level testbenches in `tb/`)
+* **Synthesis Tool:** Xilinx Vivado
 
 ## 🛠️ Design Flow
-1. **RTL Design:** Modular Verilog code developed for each functional block (Clock, Stopwatch, Alarm, Display Controller, Clock Divider).  
-2. **Simulation:** Verified using module-level testbenches in `[simulation tool: 확실하지 않음]`.  
-3. **Logic Synthesis:** Synthesized top-level RTL with `[synthesis tool: 확실하지 않음]` to confirm gate-level mapping and timing
+1. **RTL Design:** Modular Verilog code developed for each functional block
+2. **Simulation:** Verified functionality and timing using **ModelSim** with dedicated testbenches.
+3. **Logic Synthesis:** Synthesized top-level RTL using **Vivado** to confirm gate-level mapping and hardware implementability.
 
 ## 🗂️ Repository Structure
 
 📦 Verilog-Digital-Clock-with-Stopwatch-Alarm
 - 📁 **rtl/**  
   Verilog RTL source files (.v)  
-  *Modules:* `top.v`, `counter.v`, `stopwatch.v`, `alarm.v`, `display_controller.v`, `clock_divider.v`
+  *Modules:* `top.v`, `stopwatch.v`, `alarm.v`, `clock_gen.v`
 - 📁 **tb/**  
   Module-level testbenches for behavioral simulation
 - 📁 **docs/**  
@@ -43,8 +43,8 @@ Stopwatch and Alarm functionalities are modularized and integrated at the top-le
 
 | Metric             | Result               |
 |-------------------|--------------------|
-| Target Frequency   | 확실하지 않음       |
-| Total Area         | 확실하지 않음       |
+| Target Frequency   | 5KHz (Main Clock)       |
+| Total Area         | Nonexistent             |
 | Setup/Hold Slack   | Met timing requirements |
 
 > Screenshot of synthesis report: `assets/images/synthesis_report.png`  
@@ -52,11 +52,12 @@ Stopwatch and Alarm functionalities are modularized and integrated at the top-le
 ## 🚀 Key Contributions
 * **Modular RTL Design**: Top-level integration of core clock, stopwatch, and alarm modules.
 * **Functional Verification**: Verified logical correctness using dedicated module-level testbenches.
-* **Synthesis Confirmation**: Synthesized the top-level RTL to confirm suitability for standard FPGA/ASIC design flows.
+* **Synthesis Confirmation**: Synthesized the top-level RTL to confirm suitability for FPGA implementation.
 * **Documentation**: Clear documentation of architecture, simulation setup, and verification results.
 
 ## 🚀 How to Run Simulation
-# Compile and run the top-level testbench using Icarus Verilog
-iverilog -o clock_tb tb/top_tb.v firmware/*.v
-vvp clock_tb
-gtkwave dump.vcd
+```bash
+# Compile and run the testbench (ModelSim CLI example)
+> vlib work
+> vlog rtl/*.v tb/clk_tb.v
+> vsim -c clk_tb -do "run -all; quit"
