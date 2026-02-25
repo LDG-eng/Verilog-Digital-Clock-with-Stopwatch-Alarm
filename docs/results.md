@@ -75,6 +75,12 @@ The `alarm_clk` module was verified under the following conditions:
   - `Alarm = 1` for exactly 1 minute (0–59 seconds of that minute).
 - Alarm automatically stops after 1 minute.
 
+#### 🔍 Alarm Trigger Waveform
+
+The waveform below confirms that the `Alarm` signal remains asserted for exactly one minute (0–59 seconds) when the current time matches the configured alarm time and `AlarmEnable = 1`.
+
+![Alarm Trigger Waveform](../assets/waveforms/alarm_trigger_waveform.png)
+
 ### ✔ AM/PM Switching
 - At 12:00:00, the `AM_PM` parameter toggles.
 - Verified during simulation transition from 11:59:59 to 12:00:00.
