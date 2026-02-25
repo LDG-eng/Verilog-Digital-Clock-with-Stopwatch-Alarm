@@ -15,7 +15,7 @@ This project implements a modular **digital clock system in Verilog HDL** integr
 
 The design was verified using **ModelSim** and synthesized using **Xilinx Vivado** targeting the ZCU104 device configuration.
 
-Design scale:
+Design Scale:
 - 4 synthesizable RTL modules
 - Module-level and top-level verification
 - FPGA synthesis completed
@@ -96,12 +96,13 @@ Verification was conducted using **ModelSim** with module-level and top-level te
 - Top-level integration simulation to confirm mode switching and cross-module behavior
 - Waveform inspection to confirm expected signal transitions and durations
 
-Verification focused on deterministic state transitions and edge-condition correctness.  
-Special attention was given to:
+Verification focused on deterministic state transitions and edge-condition correctness, with special attention to:
 
 - 11:59:59 → 12:00:00 rollover behavior  
 - Stop-state protection logic  
 - One-cycle `SW_State` pulse generation  
+
+Testbenches include `clock_generator_tb.v`, `alarm_clk_tb.v`, `stopwatch_tb.v`, and `Top_module_tb.v`.
 
 ---
 
@@ -164,6 +165,8 @@ This project demonstrates:
 - Deterministic reset prioritization and control signal handling
 - Glitch-free mode switching through output multiplexing
 - Clear separation between timekeeping, alarm logic, and stopwatch control
+
+Overall, this project validates a clean, modular RTL implementation that is functionally verified and synthesizable for FPGA deployment.
 
 ---
 
