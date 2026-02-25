@@ -22,7 +22,7 @@ top.v
  ┣━ clock_gen.v           # Clock generation
  ┣━ stopwatch.v           # Independent stopwatch logic
  ┗━ alarm.v               # Time comparison logic
-text'''
+```
 
 ---
 
