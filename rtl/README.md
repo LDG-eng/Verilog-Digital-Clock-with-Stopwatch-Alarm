@@ -17,22 +17,11 @@ The design is modularized for maintainability, testability, and clear top-level 
 > Notes: The design has been **RTL-synthesized**, and all modules have associated **module-level testbenches** in `tb/`.
 
 ### 🏗️ Module Hierarchy
-```text
-top.v
- ┣━ clock_gen.v           # Clock generation
- ┣━ stopwatch.v           # Independent stopwatch logic
- ┗━ alarm.v               # Time comparison logic
-```
-
-
-### 🏗️ Module Hierarchy
 
 - ⚙️ **`top.v`** (Top-level Integration)
   - ⏱️ `clock_gen.v`
   - 🛑 `stopwatch.v`
   - 🔔 `alarm.v`
-
-
 
 ---
 
