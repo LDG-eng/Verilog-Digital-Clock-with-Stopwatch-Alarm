@@ -56,7 +56,7 @@ The system is composed of **four main modules**:
 ### 3️⃣ stop (Stopwatch)
 - **Role:** Millisecond-level stopwatch logic.  
 - **Inputs:**  
-  - Clock/control: `Clock_1MSec`, `Reset`  
+  - Clock/control: `Clock_1MSec`, `Reset`, `Control` (1: disable, 0: enable)
   - Control signals: `Start_S` (1: start, 0: pause), `Stop_S` (1: stop), `Reset_S` (1: reset)  
 - **Outputs:**  
   - `Hours_S`, `Mins_S`, `Secs_S`, `MSecs_S`  
@@ -66,11 +66,11 @@ The system is composed of **four main modules**:
 
 ---
 
-### 4️⃣ Top (Top-Level Module)
-- **Role:** Integrates `clock_gen`, `alarm_clk`, and `stop` modules, and determines final outputs.  
+### 4️⃣ Top_module (Top-Level Module)
+- **Role:** Integrates `clock_gen`, `alarm_clk`, and `stopwatch` modules, and determines final outputs.  
 - **Inputs:**  
   - Main clock: `Clock_5K`, `Reset`  
-  - User buttons / mode selection signals for time/alarm/stopwatch setting  
+  - mode selection signals (`Control`, `LoadTime`, `LoadAlm`, etc.) for time/alarm/stopwatch setting
 - **Outputs:**  
   - `Hours`, `Mins`, `Secs`, `MSecs`  
   - `AM_PM`, `Alarm`  
