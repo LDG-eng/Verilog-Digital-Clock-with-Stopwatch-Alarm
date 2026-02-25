@@ -19,7 +19,7 @@ The testbench applied the following signals:
 
 | Step | Input Condition | Observed Behavior |
 |------|----------------|------------------|
-| 1 | `Reset` → `LoadTime = 1` | Current time updated to user-defined value, second counting started |
+| 1 | `Reset` → `LoadTime = 1` | Current time updated to user-defined value and normal counting resumed |
 | 2 | `Control = 0` | System switched to Stopwatch mode |
 | 3 | `Start_S = 1` | Stopwatch started counting in 1 ms resolution |
 | 4 | `Start_S = 0` | Stopwatch paused |
@@ -28,6 +28,7 @@ The testbench applied the following signals:
 | 7 | `Control = 1` | System returned to Clock/Alarm mode |
 | 8 | 11:59:59 → 12:00:00 | `AM_PM` toggled correctly |
 | 9 | Alarm time matched & `AlarmEnable = 1` | Alarm signal asserted for 1 minute |
+| 10 | `Control` toggled | `SW_State` asserted for one `Clock_5K` cycle |
 
 ---
 
@@ -42,6 +43,7 @@ The stopwatch operates at 1 ms resolution using `Clock_1MSec`.
 - If `Stop_S = 1`, the stopwatch enters a locked stop state.
 - After `Stop_S = 1`, toggling `Start_S` does not resume operation.
 - Only when `Reset_S = 1`, the stopwatch state is cleared and a new counting session can begin.
+- Reset_S has priority over Stop_S, ensuring deterministic recovery behavior.
 - Time carry structure:
   - 1000 ms → 1 second
   - 60 seconds → 1 minute
@@ -73,10 +75,10 @@ The `alarm_clk` module was verified under the following conditions:
 - Verified during simulation transition from 11:59:59 to 12:00:00.
 
 ### ✔ Concurrent Operation
-Clock operation continues independently during:
-- Alarm setting
-- Alarm ringing
-- Stopwatch mode (when `Control` switches back)
+- Clock timekeeping continues independently during alarm setting and alarm triggering.
+- Stopwatch operation does not interfere with internal clock or alarm logic.
+- Mode switching via `Control` affects only the displayed outputs and does not interrupt internal module execution.
+- Independent behavior is achieved through separate always blocks in the RTL design, ensuring deterministic operation of timekeeping, alarm logic, and stopwatch control.
 
 ---
 
@@ -107,6 +109,7 @@ Synthesis was performed using **Vivado** targeting the **ZCU104 Evaluation Board
 - The design was successfully synthesized without major synthesis errors.
 - BUFG resources were inserted during synthesis.
 - IO utilization differed from reference material (reason not fully identified).
+- Low LUT and FF utilization indicate limited logic resource usage.
 
 ### ✔ Gate-Level Output
 
@@ -125,4 +128,4 @@ The design has been:
 - Confirmed for 1-minute alarm duration
 - Successfully synthesized with low resource utilization
 
-This confirms that the RTL implementation is functionally correct and synthesizable for FPGA-based implementation.
+The verification and synthesis results confirm that the RTL implementation satisfies functional requirements and is synthesizable for FPGA-based implementation.
