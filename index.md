@@ -114,7 +114,7 @@ The waveform below shows:
 - Stopwatch operation
 - One-cycle `SW_State` pulse
 
-![Top-Level Integration Waveform](assets/waveforms/top_integration_waveform.png)
+![Top-Level Integration Waveform](assets/waveforms/Top module_sim2.JPG)
 
 ---
 
@@ -126,7 +126,7 @@ The following waveform confirms:
 - Correct AM/PM toggle
 - 1-minute alarm assertion
 
-![AM/PM & Alarm Waveform](assets/waveforms/am_pm_alarm_waveform.png)
+![AM/PM & Alarm Waveform](assets/waveforms/Top module_sim3.JPG)
 
 ---
 
