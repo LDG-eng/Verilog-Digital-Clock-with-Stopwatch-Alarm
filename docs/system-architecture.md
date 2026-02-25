@@ -23,6 +23,10 @@ The system consists of one top-level module and three functional submodules:
   - 🛑 `stopwatch.v`   # Stopwatch module
   - 🔔 `alarm_clk.v`   # Current time & alarm module
 
+## 🏗️ Block Diagram
+
+![System Block Diagram](../assets/images/system_block_diagram.png)
+
 ---
 
 ## ⚡ Module Specifications
