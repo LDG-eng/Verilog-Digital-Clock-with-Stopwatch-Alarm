@@ -24,21 +24,19 @@ Stopwatch and Alarm functionalities are modularized and integrated at the top-le
 3. **Logic Synthesis:** Synthesized top-level RTL with `[synthesis tool: 확실하지 않음]` to confirm gate-level mapping and timing
 
 ## 🗂️ Repository Structure
-📦 Verilog-Digital-Clock-with-Stopwatch-Alarm
-> - `rtl/` contains all functional modules (`top.v`, `counter.v`, `stopwatch.v`, `alarm.v`, `display_controller.v`, `clock_divider.v`)  
-> - `tb/` contains module-level testbenches for verification  
-> - `docs/` contains architecture, experiment setup, and results  
-> - `assets/` contains block diagrams, waveform images, and synthesis screenshots
 
-
-| Folder      | Description |
-|------------|------------|
-| firmware/  | RTL Verilog source files (`top.v`, `counter.v`, `stopwatch.v`, `alarm.v`, `display_controller.v`, `clock_divider.v`) |
-| tb/        | Module-level testbenches for behavioral simulation |
-| docs/      | System architecture, experiment setup, and verification results |
-| assets/    | Block diagrams, waveform images, and synthesis screenshots |
-| README.md  | Top-level project introduction |
-| LICENSE    | License information |
+📦 `Verilog-Digital-Clock-with-Stopwatch-Alarm`
+- 📁 **rtl/**  
+  Verilog RTL source files (.v)  
+  *Modules:* `top.v`, `counter.v`, `stopwatch.v`, `alarm.v`, `display_controller.v`, `clock_divider.v`
+- 📁 **tb/**  
+  Module-level testbenches for behavioral simulation
+- 📁 **docs/**  
+  System architecture, experiment setup, and verification results
+- 📁 **assets/**  
+  Block diagrams, waveform images, and synthesis screenshots
+- 📄 **README.md**  
+  Project documentation and overview
 
 ## 📈 Synthesis Results
 *(Exact tool report values not provided, summarized placeholders below)*
