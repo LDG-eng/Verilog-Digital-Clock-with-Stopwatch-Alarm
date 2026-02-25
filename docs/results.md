@@ -85,6 +85,13 @@ The waveform below confirms that the `Alarm` signal remains asserted for exactly
 - At 12:00:00, the `AM_PM` parameter toggles.
 - Verified during simulation transition from 11:59:59 to 12:00:00.
 
+### 🔍 AM/PM Transition Waveform
+
+The waveform verifies correct `AM_PM` toggling during the transition from 11:59:59 to 12:00:00.
+
+![AM/PM Transition Waveform](../assets/waveforms/alarm_clk sim3.JPG)
+
+
 ### ✔ Concurrent Operation
 - Clock timekeeping continues independently during alarm setting and alarm triggering.
 - Stopwatch operation does not interfere with internal clock or alarm logic.
