@@ -24,6 +24,16 @@ top.v
  ┗━ alarm.v               # Time comparison logic
 ```
 
+
+### 🏗️ Module Hierarchy
+
+- ⚙️ **`top.v`** (Top-level Integration)
+  - ⏱️ `clock_gen.v`
+  - 🛑 `stopwatch.v`
+  - 🔔 `alarm.v`
+
+
+
 ---
 
 ## 🛠️ Usage Notes
