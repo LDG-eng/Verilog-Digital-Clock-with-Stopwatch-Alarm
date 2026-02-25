@@ -9,7 +9,7 @@ Stopwatch and Alarm functionalities are modularized and integrated at the top-le
 
 ## 🏗️ System Architecture
 
-![System Block Diagram](assets/images/system_block_diagram.png)
+![System Block Diagram](assets/images/system_block_diagarm.png)
 
 ## ✨ Key Features
 * **🕰️ Timekeeping**: Hours, minutes, and seconds counter with 12-hour AM/PM format
