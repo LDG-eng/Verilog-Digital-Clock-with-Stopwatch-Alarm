@@ -14,7 +14,7 @@ This document describes the **simulation environment**, **testbench structure**,
     - 📜 `clock_generator_tb.v` (Clock generation module testbench)
     - 📜 `stopwatch_tb.v` (Stopwatch module testbench)
 - **RTL Source Directory:** `rtl/`
-- **Waveform Output:** VCD (Value Change Dump) files generated for viewing in ModelSim waveform viewers.
+- Waveform Output: Simulation waveforms observed using ModelSim waveform viewer.
 
 > All testbenches are **module-level**, focusing on functional verification of each block individually and integration at the top-level.
 
@@ -31,7 +31,7 @@ Constraints were applied in simulation to ensure accurate timing behavior matchi
 - **Reset:** Global active-high reset signal applied to initialize all modules safely.
 - **Control Signals:** System state is driven by input stimuli (`LoadTime`, `LoadAlm`, `AlarmEnable`, `Start_S`, `Stop_S`, `Reset_S`) as defined in the RTL specifications.
 
-> **Note:** Exact FPGA/ASIC physical synthesis constraints (Area, Power) are **N/A** for this functional verification phase. Timing was verified against the 5KHz target.
+> **Note:** Exact FPGA/ASIC physical synthesis constraints (Area, Power) are **N/A** for this functional verification phase. Physical timing analysis was not the focus of this functional verification phase.
 
 ---
 
