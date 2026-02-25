@@ -18,10 +18,10 @@ The design is modular and RTL-synthesizable, intended for behavioral simulation 
 
 The system is composed of **four main modules**:
 
-Top
-├── clock_gen # Clock generator module
-├── alarm_clk # Current time & alarm module
-└── stop # Stopwatch module
+- ⚙️ **`Top_module.v`** (Top-level Integration)
+  - ⏱️ `clock_gen.v`   # Clock generator module
+  - 🛑 `stopwatch.v`   # Current time & alarm module
+  - 🔔 `alarm_clk.v`   # Stopwatch module
 
 ---
 
